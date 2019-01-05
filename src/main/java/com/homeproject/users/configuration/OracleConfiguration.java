@@ -8,6 +8,7 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
 import javax.validation.constraints.NotNull;
@@ -80,5 +81,12 @@ public class OracleConfiguration {
         dataSource.url(url);
   
         return dataSource.build();
+    }
+	
+	
+	
+	@Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 }

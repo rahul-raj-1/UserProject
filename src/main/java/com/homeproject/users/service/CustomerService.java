@@ -6,6 +6,7 @@ package com.homeproject.users.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.homeproject.users.dto.CountryDto;
 import com.homeproject.users.dto.UserDto;
 import com.homeproject.users.entity.Customer;
 
@@ -18,6 +19,7 @@ public interface CustomerService {
 
 	
 	 List<Customer> getCustomerList();
+	 List<CountryDto> getCountryCodes();
 	
 
 
