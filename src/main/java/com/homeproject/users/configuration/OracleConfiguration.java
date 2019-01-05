@@ -4,6 +4,7 @@ import oracle.jdbc.pool.OracleDataSource;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -71,13 +72,13 @@ public class OracleConfiguration {
 	@Bean
     DataSource dataSource() throws SQLException {
  
-        OracleDataSource dataSource = new OracleDataSource();
-        dataSource.setDriverType(driverType);
-        dataSource.setUser(username);
-        dataSource.setPassword(password);
-        dataSource.setURL(url);
-        dataSource.setImplicitCachingEnabled(true);
-        dataSource.setFastConnectionFailoverEnabled(true);
-        return dataSource;
+		DataSourceBuilder  dataSource =  DataSourceBuilder.create();
+        System.out.println( " user nam e is "  +  username );
+        dataSource.driverClassName(driverType);
+        dataSource.username(username);
+        dataSource.password(password);
+        dataSource.url(url);
+  
+        return dataSource.build();
     }
 }
