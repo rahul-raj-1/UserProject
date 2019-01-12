@@ -2,6 +2,8 @@ package com.homeproject.users.util;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+//we can name this class anything
 public class Response {
 	
 	

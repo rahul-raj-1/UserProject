@@ -54,6 +54,8 @@ public List<CountryDto> getCountryCodes() {
 	
 	HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+ ///   httpHeaders.set("Authorization", "Bearer " + "your token"); if autherisation was there 
+    
     HttpEntity<?> httpEntity = new HttpEntity<>(httpHeaders);
 		
     ResponseEntity<Response> responseResponseEntity = restTemplate.exchange(url, HttpMethod.GET, httpEntity, Response.class);
@@ -63,7 +65,8 @@ public List<CountryDto> getCountryCodes() {
 // Response response = restTemplate.getForObject( fooResourceUrl, Response.class); 
 // System.out.println(" response.toString()  --------> "   +  response.getRestResponse().getResults());
 
-
+   
+    
 for (CountryDto countryDto : responseResponseEntity.getBody().getRestResponse().getResults()  )
 {
 	 
@@ -71,7 +74,8 @@ for (CountryDto countryDto : responseResponseEntity.getBody().getRestResponse().
 	System.out.println(  "Alpha 2 Code  : - "  + countryDto.getAlpha2Code());
 	System.out.println(  "Alpha 3 Code : - "  + countryDto.getAlpha3Code() );
 }
-
+System.out.println( "Total no of object  ->  "  + responseResponseEntity.getBody().getRestResponse().getResults().size()   );
+System.out.println("  responseResponseEntity.getHeaders() --" +  responseResponseEntity.getHeaders());
 return responseResponseEntity.getBody().getRestResponse().getResults();
 	
 	}

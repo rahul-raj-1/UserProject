@@ -1,12 +1,12 @@
 package com.homeproject.users.util;
 
-import java.util.Arrays;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.homeproject.users.dto.CountryDto;
 
-
+///this class fields  is designed based on the structure of RESPONSE JSON
+////we can name this class anything
 public class RestResponse {
 	
 	private List<String> messages;
